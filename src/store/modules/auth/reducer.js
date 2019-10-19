@@ -4,7 +4,7 @@ import { Types as TypesAuth } from './actions';
 
 const INITIAL_STATE = {
   token: null,
-  signed: false,
+  signed: true,
   loading: false,
 };
 
