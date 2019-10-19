@@ -1,5 +1,5 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects';
-import { Types, signInSuccess, signFailure } from './actions';
+import { Types, signInSuccess, signFailure, signUpSuccess } from './actions';
 import api from '~/services/api';
 import history from '~/services/history';
 
@@ -7,7 +7,7 @@ export function* singIn({ payload }) {
   try {
     const { email, password } = payload;
 
-    const response = yield call(api.post, '/sessions', { email, password });
+    const response = yield call(api.post, '/session', { email, password });
 
     const { token, user } = response.data;
 
@@ -25,14 +25,16 @@ export function* singUp({ payload }) {
   try {
     const { name, email, password } = payload;
 
-    yield call(api.post, '/users', {
+    yield call(api.post, '/user', {
       name,
       email,
       password,
       provider: true,
     });
 
-    history.push('/dashboard');
+    yield put(signUpSuccess());
+
+    history.push('/');
   } catch (error) {
     yield put(signFailure());
   }

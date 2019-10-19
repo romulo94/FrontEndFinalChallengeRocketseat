@@ -4,7 +4,7 @@ import { Types as TypesAuth } from './actions';
 
 const INITIAL_STATE = {
   token: null,
-  signed: true,
+  signed: false,
   loading: false,
 };
 
@@ -19,6 +19,12 @@ export default function auth(state = INITIAL_STATE, action) {
       case TypesAuth.SIGN_IN_SUCCESS: {
         draft.token = action.payload.token;
         draft.signed = true;
+        draft.loading = false;
+        break;
+      }
+
+      case TypesAuth.SIGN_UP_SUCCESS: {
+        draft.signed = false;
         draft.loading = false;
         break;
       }
