@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import logo from '~/assets/logo.svg';
 import { Container, Content, Profile } from './styles';
 
 export default function Header() {
@@ -10,7 +11,7 @@ export default function Header() {
     <Container>
       <Content>
         <nav>
-          <h3>M</h3>
+          <img src={logo} alt="meetapplogo" />
           <Link to="/dashboard">DASHBOARD</Link>
         </nav>
 

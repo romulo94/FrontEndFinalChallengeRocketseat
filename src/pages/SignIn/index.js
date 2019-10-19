@@ -5,6 +5,8 @@ import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 import { signInRequest } from '~/store/modules/auth/actions';
 
+import logo from '~/assets/logo.svg';
+
 const schema = Yup.object().shape({
   email: Yup.string()
     .email('Insira um email válido')
@@ -22,7 +24,7 @@ export default function SignIn() {
 
   return (
     <>
-      <h3>M</h3>
+      <img src={logo} alt="meetapplogo" />
 
       <Form onSubmit={handleSubmit} schema={schema}>
         <Input name="email" type="email" placeholder="Seu e-mail" />
