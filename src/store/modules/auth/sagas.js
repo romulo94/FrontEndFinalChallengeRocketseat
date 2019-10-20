@@ -9,11 +9,11 @@ export function* singIn({ payload }) {
 
     const response = yield call(api.post, '/session', { email, password });
 
-    const { token, user } = response.data;
+    const { token, name } = response.data;
 
     api.defaults.headers.Authorization = `Bearer ${token}`;
 
-    yield put(signInSuccess(token, user));
+    yield put(signInSuccess(token, name, email));
 
     history.push('/dashboard');
   } catch (error) {

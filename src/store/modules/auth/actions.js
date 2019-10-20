@@ -14,10 +14,10 @@ export function signInRequest(email, password) {
   };
 }
 
-export function signInSuccess(token, user) {
+export function signInSuccess(token, name, email) {
   return {
     type: Types.SIGN_IN_SUCCESS,
-    payload: { token, user },
+    payload: { token, name, email },
   };
 }
 

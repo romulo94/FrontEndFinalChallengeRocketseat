@@ -8,10 +8,8 @@ import logo from '~/assets/logo.svg';
 export default function Header() {
   const dispatch = useDispatch();
   const exit = useCallback(() => dispatch(signOut()), [dispatch]);
-  // const profile = useSelector(state => state.user.profile);
-  const profile = {
-    name: 'Teste name',
-  };
+  const { name } = useSelector(state => state.user);
+
   return (
     <Container>
       <Content>
@@ -24,7 +22,7 @@ export default function Header() {
         <aside>
           <Profile>
             <div>
-              <strong>{profile.name}</strong>
+              <strong>{name}</strong>
               <Link to="/profile">Meu perfil</Link>
             </div>
             <Button onClick={exit}>Sair</Button>
