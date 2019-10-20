@@ -27,7 +27,7 @@ export default function Dashboard() {
     <Container>
       <header>
         <h2>Meus meetups</h2>
-        <Link to="/meetup/new">
+        <Link to="/meetup">
           <Button>
             <MdAddCircleOutline size={20} />
             Novo meetup
