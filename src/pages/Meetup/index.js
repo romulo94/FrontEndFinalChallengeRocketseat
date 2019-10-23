@@ -7,8 +7,8 @@ import PropTypes from 'prop-types';
 import { zonedTimeToUtc } from 'date-fns-tz';
 import api from '~/services/api';
 
-// import ImageInput from '~/components/ImageInput';
-// import DatePicker from '~/components/DatePicker';
+import ImgInput from '~/components/ImgInput';
+import DatePicker from '~/components/DatePicker';
 
 import { Container, Button } from './styles';
 
@@ -57,11 +57,11 @@ export default function Meetup({ match }) {
   return (
     <Container>
       <Form schema={schema} initialData={meetup} onSubmit={postOrPutMeetup}>
-        {/* <ImageInput name="file" /> */}
+        <ImgInput name="file" />
 
         <Input name="title" placeholder="Título do meetup" />
         <Input name="description" placeholder="Descrição completa" multiline />
-        {/* <DatePicker name="date" placeholder="Data do meetup" /> */}
+        <DatePicker name="date" placeholder="Data do meetup" />
         <Input name="location" placeholder="Localização" />
 
         <Button type="submit">
